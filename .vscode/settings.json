@@ -36,6 +36,7 @@
         "editor.formatOnSave": false
     },
     "clangd.arguments": ["--header-insertion=never"],
+    "clangd.path": "/usr/bin/clangd",
     "json.schemas": [
         {
             "fileMatch": ["qmk.json"],
