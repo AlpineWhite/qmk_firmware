@@ -17,41 +17,54 @@
 #include QMK_KEYBOARD_H
 #include "socd_cleaner.h"
 // clang-format off
+
+enum layers{
+  WIN_BASE,
+  WIN_FN,
+  MAC_BASE,
+  MAC_FN,
+  XTRA
+};
+
+#define KC_TASK LGUI(KC_TAB)
+#define KC_FLXP LGUI(KC_E)
+#define KC_SIRI LALT(KC_SPC)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [0] = LAYOUT_ansi( /* Base */
+    [WIN_BASE] = LAYOUT_ansi( /* Base */
 		KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_HOME, KC_MUTE,
 		KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_DEL,
 		KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_PGUP,
 		KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT,  KC_PGDN,
 		KC_LSFT, KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,   KC_END,
-		KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                             MO(1), KC_RCTL,            KC_LEFT, KC_DOWN, KC_RGHT),
+		KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                             MO(WIN_FN), KC_RCTL,            KC_LEFT, KC_DOWN, KC_RGHT),
 
-    [1] = LAYOUT_ansi( /* FN */
+    [WIN_FN] = LAYOUT_ansi( /* FN */
 		EE_CLR,  KC_BRID, KC_BRIU, A(KC_TAB),G(KC_D),KC_RETN, KC_WSCH, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, _______, KC_MPLY,
-		_______, KC_BT1,  KC_BT2,  KC_BT3,  KC_2G4,  _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_INS,
+		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_INS,
 		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
 		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR, KC_SCRL, _______, _______, _______,
-		_______, _______, RM_TOGG, RM_NEXT, RM_HUEU, RM_HUED, _______, _______, _______, _______, KC_PAUS, _______, MO(4),   RM_VALU, _______,
+		_______, _______, RM_TOGG, RM_NEXT, RM_HUEU, RM_HUED, _______, _______, _______, _______, KC_PAUS, _______, MO(XTRA),   RM_VALU, _______,
 		_______, GU_TOGG, _______,                   _______,                            _______, _______,          RM_SATU, RM_VALD, RM_SATD),
 
-    [2] = LAYOUT_ansi( /* Base */
+    [MAC_BASE] = LAYOUT_ansi( /* Base */
 		KC_ESC,  KC_BRID,KC_BRIU,G(KC_TAB), KC_LPAD, KC_F5,   KC_F6,   KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, KC_HOME, KC_MUTE,
 		KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_DEL,
 		KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_PGUP,
 		KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT,  KC_PGDN,
 		KC_LSFT, KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,   KC_END,
-		KC_LCTL, KC_LALT, KC_LGUI,                   KC_SPC,                             KC_RGUI, MO(3),            KC_LEFT, KC_DOWN, KC_RGHT),
+		KC_LCTL, KC_LALT, KC_LGUI,                   KC_SPC,                             KC_RGUI, MO(MAC_FN),            KC_LEFT, KC_DOWN, KC_RGHT),
 
-    [3] = LAYOUT_ansi( /* FN */
+    [MAC_FN] = LAYOUT_ansi( /* FN */
 		EE_CLR,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, KC_MPLY,
-		_______, KC_BT1,  KC_BT2,  KC_BT3,  KC_2G4,  _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_INS,
+		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_INS,
 		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
 		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR, KC_SCRL, _______, _______, _______,
-		_______, _______, RM_TOGG, RM_NEXT, RM_HUEU, RM_HUED, _______, _______, _______, _______, KC_PAUS, _______, MO(4),   RM_VALU, _______,
+		_______, _______, RM_TOGG, RM_NEXT, RM_HUEU, RM_HUED, _______, _______, _______, _______, KC_PAUS, _______, MO(XTRA),   RM_VALU, _______,
 		_______, _______, _______,                   _______,                            _______, _______,          RM_SATD, RM_VALD, RM_SATU),
 
-    [4] = LAYOUT_ansi( /* XTRA */
+    [XTRA] = LAYOUT_ansi( /* XTRA */
 		QK_BOOT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -63,11 +76,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [0] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [1] = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
-    [2] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [3] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [4] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [WIN_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [WIN_FN]   = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
+    [MAC_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [MAC_FN]   = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
+    [XTRA]     = { ENCODER_CCW_CW(_______, _______) },
+};
+#endif
+
+#if defined(DIP_SWITCH_MAP_ENABLE)
+const uint16_t PROGMEM dip_switch_map[NUM_DIP_SWITCHES][NUM_DIP_STATES] = {
+    DIP_SWITCH_OFF_ON(DF(WIN_BASE), DF(MAC_BASE))
 };
 #endif
 
