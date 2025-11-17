@@ -8,7 +8,6 @@
     "usb": {
         "device_version": "0.3.0",
         "pid": "0xE4C5",
-        "suspend_wakeup_delay": 1000,
         "vid": "0x342D"
     },
     "bootmagic": {
@@ -29,19 +28,18 @@
         }
     },
     "encoder": {
+        "enabled": true,
         "rotary": [{"pin_a": "B7", "pin_b": "B6"}]
     },
     "dip-switch": {
         "pins": ["C15", "C14"]
     },
     "features": {
-        "command": false,
-        "console": false,
+        "bootmagic": true,
         "extrakey": true,
         "mousekey": true,
         "nkro": true,
         "rgb_matrix": true,
-        "deferred_exec": true,
         "dip_switch": true,
         "encoder": true
     },
