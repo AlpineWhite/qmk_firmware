@@ -68,6 +68,14 @@
             "solid_reactive_simple": true,
             "typing_heatmap": true
         },
+        "default": {
+            "animation": "solid color",
+            "on": true,
+            "hue": 0,
+            "sat": 0,
+            "val": 50
+
+        },
         "driver": "snled27351",
         "layout": [
             { "flags": 4, "matrix": [0,0],  "x":   0, "y": 0 },
@@ -165,8 +173,11 @@
             { "flags": 2, "x":  50, "y": 64},
             { "flags": 2, "x":  130, "y": 64}
         ],
-        "max_brightness": 100,
-        "sleep": true
+
+        "sleep": true,
+        "hue_steps": 10,
+        "speed_steps": 16,
+        "val_steps": 20
     },
     "layouts": {
         "LAYOUT_ansi": {

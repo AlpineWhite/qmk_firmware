@@ -1,0 +1,4 @@
+# For APM32 Bootloader
+DFU_SUFFIX_ARGS = -p FFFF -v FFFF
+
+ENCODER_ENABLE = yes

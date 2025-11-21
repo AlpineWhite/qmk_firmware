@@ -1,0 +1,72 @@
+{
+    "keyboard_name": "USB_EN",
+    "manufacturer": "CZMAO",
+    "url": "NONE",
+    "maintainer": "MAOKB",
+    "diode_direction": "COL2ROW",
+    "processor": "STM32F103",
+    "bootloader": "stm32duino",
+    "usb": {
+      "vid": "0x7F89",
+      "pid": "0x4B43",
+      "device_version": "1.0.0"
+    },
+    "features": {
+      "bootmagic": true,
+      "command": true,
+      "console": true,
+      "extrakey": true,
+      "nkro": true,
+      "mousekey": true,
+      "force_nkro": true,
+      "rgblight": true
+    },
+
+     "dynamic_keymap": {
+      "layer_count": 4
+    },
+
+    "ws2812": {
+      "pin": "B13"
+    },
+    "rgblight": {
+      "max_brightness":180,
+      "saturation_steps": 8,
+      "brightness_steps": 8,
+      "hue_steps": 10,
+      "led_count": 4,
+      "sleep": true,
+      "animations": {
+          "breathing": true,
+          "rainbow_mood": true,
+          "rainbow_swirl": true,
+          "snake": true,
+          "knight": true,
+          "christmas": true,
+          "static_gradient": true,
+          "rgb_test": true,
+          "alternating": true,
+          "twinkle": true
+      }
+    },
+
+    "matrix_pins": {
+      "cols": ["B15", "A8",  "A9"],
+      "rows": ["B4", "A7"]
+    },
+    "layouts": {
+      "LAYOUT_tkl_f13_ansi": {
+        "layout": [
+          {"label": "WinLCK",         "x": 0,        "y": 0,             "matrix": [0, 0]},
+          {"label": "F1",          "x": 1.25,     "y": 0,             "matrix": [0, 1]},
+          {"label": "F2",          "x": 2.25,     "y": 0,             "matrix": [0, 2]},
+
+          {"label": "GRV",        "x": 0,     "y": 1,             "matrix": [1, 0]},
+          {"label": "!",          "x": 1,     "y": 1,             "matrix": [1, 1]} 
+          
+
+        ]
+      }
+    }
+
+  }
