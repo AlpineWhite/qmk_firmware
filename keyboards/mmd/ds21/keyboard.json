@@ -75,6 +75,13 @@
           "solid_splash": true,
           "solid_multisplash": true
       },
+      "default": {
+            "animation": "solid_color",
+            "on": true,
+            "hue": 0,
+            "sat": 0,
+            "val": 50
+      },
       "driver": "ws2812",
       "max_brightness":180,
       "layout": [
